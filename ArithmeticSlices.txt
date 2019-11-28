@@ -1,0 +1,14 @@
+Arithmetic Slices
+
+This problem asks how many arithmetic sequences there are in an array of integers. An arithmetic sequence is a 
+increasing or decreasing sequence of at least three elements that always have the same difference between elements.
+
+In order to solve this problem, we determine if every possible sequence is arithmetic. We start with the first element 
+of the sequence, build up from there, and, once done, we move to the next element. We determine the difference between 
+elements by subtracting the first element from the second (don't use absolute values in case the sequence is 
+decreasing). From there, we determine if the next element matches the difference from the previous one; if it does, we 
+add to a counter representing arithmetic sequences. We continue building up the slice until either the difference 
+between elemnets doesn't match or it reaches the end (if it reaches the end, all sequences between it and the current 
+first element are arithmetic; escape the loop accordingly). We then return the counter.
+
+We only need the input array and an integer to count the number of arithmetic sequences.

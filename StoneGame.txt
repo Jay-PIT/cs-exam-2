@@ -1,0 +1,23 @@
+Stone Game
+
+This problem asks to find if Alex wins the stone game assuming he gets the first turn and both him and his opponent 
+Lee play at their best. The rules of the game are:
+1) There is a line of piles of rocks.
+2) Players take turns to pick up one of the two piles on the edges.
+3) The game ends when no more piles are left.
+4) Whoever has the most rocks at the end wins.
+
+In order to solve this problem, we just have to let the game play out in a program. We lay out the line of piles as an 
+array, and *keep track* of the rocks each player gathers. If Alex has more rocks than Lee, we return true.
+1) We declare variables to keep track of the score, the indexes of the current options, and the current turn; all will 
+   be set to zero except the right index, which will point to the furthest right point (length  - 1).
+2) Since both players are using the same strategy, we can determine the best move first. Players will grab the largest 
+   pile (in case of a tie, they will grab the right pile). We change the indexes accordingly (closer to each other by 
+   one pile; right-- or left++).
+3) We give the pile to the current player; Alex plays on even turns.
+4) We continue until all piles are taken; when this happens, the indexes will end up past each other (right < left). 
+   This will signify that game is over; at this point, we determine if Alex won.
+
+We only need the input integer array and six integers: Alex's score, Lee's score, the left and right indexes, the 
+current turn, and the turn's best choice. After declaring the variable, we enter a while loop, every loop representing 
+a turn to do steps 2 and 3 until the game is over.

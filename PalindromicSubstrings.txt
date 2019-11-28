@@ -1,0 +1,13 @@
+Palindromic Substrings
+
+This problem asks how many palindromic subtrings there are in a single substring. A palindrome is a word that can be 
+read the same forwards and backwards.
+
+In order to solve the problem, we determine if all possible substrings are palindromes. We build each substring by 
+starting with the first character and building up from there; once we analyze every substring with that character, we 
+move on to the next until all characters are used. We analyze the substring by comparing its characters on opposite 
+sides: if they are all equal, then it is a palindrome. We add each palindrome to a counter; once we are done scanning, 
+we return the counter.
+
+We need the input string, an integer for a counter, a string to build our substrings, and a boolean to determine if the 
+substring should be added to the counter.

@@ -1,0 +1,20 @@
+Minimum Falling Path Sum
+
+This problem asks to find the smallest sum when traversing from top to bottom of a square integer array. When going down 
+the array, you can only use the current column and those adjacent to it.
+
+In to solve the problem, we can treat going down the grid as traversing a three-node tree, with the adjacent columns as 
+the leaves the total number of trees equal to the length of the array (for example, four trees on a 4X4 grid). We 
+traverse all the trees, get their minimum sum, and choose the minimum from the results. To do that, we initialize a  
+variable with an unreachable sum ([largest possible value + 1] * length of array) and compare it to each tree's minimum 
+sum: if the tree's sum is smaller, we place it on the variable. After traversing all the trees, we return what's in the 
+variable.
+
+We use a separate recursive method for traversing each tree that keeps track of the "node"'s position in the grid and 
+the total sum. The node's value gets added to the total; once we reach the bottom, we return the total. If the tree 
+goes out of bounds, we return an unreachable sum. As the values return, they get compared with those of the adjacents
+trees each row; we return the smallest value until it goes back to the original method.
+
+We only need the input array and an integer to make the comparisons in the starting method. This comparison will be 
+done in a loop that will run as many times as the length of the array. For the recursive method, we need the input 
+array and three integers to keep track of the current row, column, and total sum.
